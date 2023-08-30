@@ -1,0 +1,593 @@
+{% extends "base.html" %} {% block content %}
+<!-- Left Sidebar End -->
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content">
+	<div class="page-content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-12 col-md-12">
+					<div class="card">
+						<div class="card-body">
+							<ul class="nav nav-tabs nav-justified mb-3">
+								<li class="nav-item">
+									<a
+										href="#dashboard"
+										data-toggle="tab"
+										aria-expanded="true"
+										class="nav-link active"
+									>
+										<i class="mdi mdi-home-variant d-lg-none d-block"></i>
+										<span class="d-none d-lg-block text-uppercase font-size-16"
+											>Dashboard</span
+										>
+									</a>
+								</li>
+								
+								<li class="nav-item">
+									<a
+										href="#formulaire"
+										data-toggle="tab"
+										aria-expanded="false"
+										class="nav-link"
+									>
+										<i class="mdi mdi-account-circle d-lg-none d-block"></i>
+										<span class="d-none d-lg-block text-uppercase font-size-16"
+											>formulaire</span
+										>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a
+										href="#importerfichier"
+										data-toggle="tab"
+										aria-expanded="false"
+										class="nav-link"
+									>
+										<i class="mdi mdi-settings-outline d-lg-none d-block"></i>
+										<span class="d-none d-lg-block text-uppercase font-size-16"
+											>importer fichier</span
+										>
+									</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane show active" id="dashboard">
+									<div class="table-responsive">
+										<div class="col-12">
+											<div class="card">
+												<div class="card-body">
+													<h4
+														class="card-title font-size-18 text-uppercase"
+													></h4>
+													<p class="card-subtitle mb-4"></p>
+													<div class="row">
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">SOLDE MOYEN</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.balance_mean}}
+																			</h2>
+																		</div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!-- end card-->
+														</div>
+														<!-- end col-->
+
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">
+																			FREQUENCE ACHAT
+																		</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.purchases_freq_mean}} %
+																			</h2>
+																		</div>
+																	</div>
+
+																	<div
+																		class="progress shadow-sm"
+																		style="height: 5px"
+																	>
+																		<div
+																			class="progress-bar bg-danger"
+																			role="progressbar"
+																			style="width: 57%"
+																		></div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!-- end card-->
+														</div>
+														<!-- end col-->
+
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">
+																			TOTAL D'ACHAT
+																		</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.purchases_trx_sum}}
+																			</h2>
+																		</div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!--end card-->
+														</div>
+														<!-- end col-->
+
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">
+																			PAYEMENT MOYEN
+																		</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.payments_mean}}
+																			</h2>
+																		</div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!-- end card-->
+														</div>
+														<!-- end col-->
+													</div>
+													<!-- end row-->
+													<div class="row">
+														<div class="col-md-6 mb-3">
+															<b><h4>Solde des comptes</h4></b>
+															{{ graphiques.hist_solde_compte|safe }}
+														</div>
+														<div class="col-md-6 mb-3">
+															<b><h4>Ratio d'achats ponctuels</h4></b>
+															{{ graphiques.pie_ratio_achats_ponctuels|safe }}
+														</div>
+														<div class="col-md-6 mb-3">
+															<b
+																><h4>
+																	Nombre de transactions par groupe de clients
+																</h4></b
+															>
+															{{
+															graphiques.barr_transaction_par_grp_client|safe}}
+														</div>
+
+														<div class="col-md-6 mb-3">
+															<b
+																><h4>
+																	Montant total des achats par rapport au solde
+																	moyen quotidien
+																</h4></b
+															>
+															{{
+															graphiques.nuage_de_points_montant_total_des_achats|safe
+															}}
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-pane" id="formulaire">
+									<div class="col-12">
+									  <div class="card">
+										<div class="card-body">
+										  <h4
+											class="card-title font-size-18 text-uppercase"
+										  >
+									
+										  </h4>
+										  <p class="card-subtitle mb-4"></p>
+										  <form
+																class="needs-validation"
+																novalidate
+																method="POST"
+																name="predire_client_form"
+																id="myForm"
+																action="/index"
+																id="predire_client_form"
+															>
+																<div class="form-row">
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom01">SOLDE * </label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom01"
+																			placeholder="Solde du compte du client"
+																			value=""
+																			required
+																			name="balance"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none; font-style: italic;font-size: small;" id="balance_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom02"
+																			>FRÉQUENCE DE SOLDE *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom02"
+																			placeholder="Fréquence à laquelle le client vérifie son solde par mois"
+																			value=""
+																			required
+																			name="balance_freq"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="balance_freq_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom03">ACHATS * </label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom03"
+																			placeholder="Montant total des achats effectués par le client sur son compte"
+																			value=""
+																			required
+																			name="purchases"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="purchases_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom04"
+																			>ACHATS UNIQUES *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom04"
+																			placeholder="Montant total des achats effectués en une seule fois par le client"
+																			value=""
+																			required
+																			name="oneoff_purchases"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="oneoff_purchases_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom05"
+																			>ACHATS ÉCHELONNÉS *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom05"
+																			placeholder="Montant total des achats effectués en plusieurs fois par le client"
+																			value=""
+																			required
+																			name="installments_purchase"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="installments_purchase_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom06"
+																			>AVANCE DE FONDS *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom06"
+																			placeholder="Montant total des avances de fonds effectuées par le client"
+																			value=""
+																			required
+																			name="cash_advance"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="cash_advance_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom07"
+																			>FRÉQUENCE D'ACHATS
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom07"
+																			placeholder="Fréquence à laquelle le client effectue des achats sur son compte"
+																			value=""
+																			name="purchases_freq"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="purchases_freq_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom08"
+																			>FRÉQUENCE D'ACHATS UNIQUES *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom08"
+																			placeholder="Fréquence à laquelle le client effectue des achats en une seule fois sur son compte."
+																			value=""
+																			required
+																			name="oneoff_purchases_freq"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="oneoff_purchases_freq_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom09"
+																			>FRÉQUENCE D'ACHATS ÉCHELONNÉS *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom09"
+																			placeholder="Fréquence à laquelle le client effectue des achats en plusieurs fois sur son compte."
+																			value=""
+																			required
+																			name="purchase_installments_freq"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="purchase_installments_freq_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom10"
+																			>FRÉQUENCE D'AVANCE DE FONDS
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom10"
+																			placeholder="Fréquence à laquelle le client effectue des avances de fonds sur son compte."
+																			value=""
+																			required
+																			name="cash_advance_freq"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="cash_advance_freq_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom11"
+																			>TRANSACTIONS D'AVANCE DE FONDS *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom11"
+																			placeholder="Nombre total de transactions d'avance de fonds effectuées par le client sur son compte"
+																			value=""
+																			required
+																			name="cash_advance_trx"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="cash_advance_trx_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom12"
+																			>TRANSACTIONS D'ACHATS *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom12"
+																			placeholder="Nombre total de transactions d'achat effectuées par le client sur son compte"
+																			value=""
+																			required
+																			name="purchases_trx"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="purchases_trx_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom13"
+																			>LIMITE DE CRÉDIT *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom13"
+																			placeholder="Limite de crédit du client, c'est-à-dire le montant maximum qu'il peut dépenser sur son compte"
+																			value=""
+																			required
+																			name="credit_limit"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="credit_limit_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom14"
+																			>PAIEMENTS *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom14"
+																			placeholder="Montant total des paiements effectués par le client sur son compte"
+																			value=""
+																			required
+																			name="payments"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="payments_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom15"
+																			>PAIEMENTS MINIMUM *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom15"
+																			placeholder="Montant minimum des paiements que le client doit effectuer chaque mois sur son compte"
+																			value=""
+																			required
+																			name="min_payments"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="min_payments_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom16"
+																			>TAUX DE PAIEMENT INTÉGRAL *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom16"
+																			placeholder="Pourcentage du solde du compte qui est payé en entier chaque mois par le client"
+																			value=""
+																			required
+																			name="pct_off_full_payment"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="pct_off_full_payment_error"></span>
+																	</div>
+																	<div class="col-md-6 mb-3">
+																		<label for="validationCustom17"
+																			>ANCIENNETE *
+																		</label>
+			
+																		<input
+																			type="number"
+																			class="form-control"
+																			id="validationCustom17"
+																			placeholder="Nombre de mois pendant lesquels le client a été client de la banque."
+																			value=""
+																			maxlength="12"
+																			required
+																			name="tenure"
+																		/>
+																		<span style="color:red; font-weight: bolder; display: none;font-style: italic;font-size: small;" id="tenure_error">Tenure</span>
+																	</div>
+																</div>			
+																</div>
+																<!-- Button trigger modal -->
+									  <button id="predire_client" class="btn btn-outline-warning btn-lg btn-block waves-effect waves-light w-100" data-toggle="modal" data-target="#exampleModalCenter" name="btn_predire_client">
+									   Prédire la catégorie de ce client
+								   </button>
+															</form>
+									<div class="col-md-12 mb-3">
+																	
+									  
+			
+								   <!-- Modal -->
+								   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									   <div class="modal-dialog modal-dialog-centered" role="document">
+										   <div class="modal-content">
+											   <div class="modal-header">
+												   <h5 class="modal-title text-center" id="exampleModalCenterTitle"><span style="text-align: center;">Catégorie client</span></h5>
+												   <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
+													   <span aria-hidden="true">&times;</span>
+												   </button>
+											   </div>
+											   <div class="modal-body text-center font-size-18 font-weight-bold fw-bold">
+												[<span class="prediction" style="font-size: larger;color: red;"></span>]
+											   </div>
+											   <div class="modal-footer">
+												   <button type="button" class="btn btn-primary waves-effect waves-light" data-dismiss="modal">Fermer</button>									   
+											   </div>
+										   </div>
+									   </div>
+								   </div>
+										</div>
+										<!-- end card-body-->
+									  </div>
+									  <!-- end card-->
+									</div>
+									<!-- end col -->
+								  </div>
+								  <div class="tab-pane" id="importerfichier">
+									<div class="table-responsive">
+									  <div class="col-12">
+										<div class="card">
+										  <div class="card-body">
+											<h4
+											  class="card-title font-size-18 text-uppercase"
+											>
+											 
+											</h4>
+											<p class="card-subtitle mb-4">
+											  Sélectionner un fichier .xlsx
+											</p>
+											<div>
+												<form action="" method="POST" enctype="multipart/form-data" id="upload">
+												  <input type="file" name="predire_excel_form"  id="predire_excel_form"/>
+												  <button type="button" name="btn_predire_excel" class="btn btn-outline-warning btn-lg btn-block waves-effect waves-light mt-5 btn_predire_excel" id="sa-close">Soumettre</button>
+												</form>
+											  </div>
+											  <button class="btn btn-outline-success btn-group-sm btn-block waves-effect waves-light mt-1 mx-auto xlsx_file" style="display: none;" id="xlsx_file">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+												  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+												  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+												</svg>
+												Télécharger les prédictions au format .xlsx
+											  </button>
+											  
+										  </div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+
+							</div>
+						</div>
+						<!-- end card-body-->
+						
+					</div>
+					<!-- end card-->
+				</div>
+				<!-- end col -->
+			</div>
+			<!-- end row-->
+		</div>
+		<!-- container-fluid -->
+	</div>
+	<!-- End Page-content -->
+
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base_login.html" %} {% block content %}
+<div class="card-wrapper mb-5" style="margin-top: -3%">
+	<div class="card" style="font-size: medium; margin-top: -15%">
+		<h1 class="center" style="font-size: medium">{{context.title}}| AKILI</h1>
+		<form name="signup_form">
+			<label for="name">Nom utilisateur</label>
+			<input type="text" name="name" class="field" required />
+
+			<label for="email">Adresse E-mail</label>
+			<input type="email" name="email" class="field" required />
+
+			<label for="password">Mot de passe</label>
+			<input type="password" name="password" class="field" required />
+
+			<p class="error error--hidden"></p>
+
+			<input type="submit" value="S'inscrire" class="btn" />
+		</form>
+	</div>
+</div>
+{% endblock %}

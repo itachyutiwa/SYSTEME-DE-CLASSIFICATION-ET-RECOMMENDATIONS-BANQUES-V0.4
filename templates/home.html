@@ -1,0 +1,18 @@
+{% extends "base_login.html" %} {% block content %}
+<div class="card-wrapper" style="margin-top: -3%">
+	<div class="card" style="font-size: medium; margin-top: -15%">
+		<h1 class="center" style="font-size: medium">{{context.title}}| AKILI</h1>
+		<form name="login_form">
+			<label for="email">Adresse E-mail</label>
+			<input type="email" name="email" class="field" required />
+
+			<label for="password">Mot de passe</label>
+			<input type="password" name="password" class="field" required />
+
+			<p class="error error--hidden"></p>
+
+			<input type="submit" value="Se connecter" class="btn" />
+		</form>
+	</div>
+</div>
+{% endblock %}

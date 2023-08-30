@@ -1,0 +1,253 @@
+{
+	"conversations": [
+		["Bonjour", "Bonjour Mr./Mme/ Mlle. En quoi puis-je vous aider ?"],
+		[
+			"Comment on vous appelle ?",
+			"Je me nomme AKIN'S, un robot cree specialement pour vous assister !"
+		],
+
+		["Comment allez-vous?", "Je me sens bien merci!"],
+
+		[
+			"Quels sont les services offerts par NSIA Banque?",
+			"NSIA Banque offre une gamme complète de services bancaires, incluant les comptes courants, les épargnes, les crédits et les services en ligne."
+		],
+
+		[
+			"Comment ouvrir un compte chez NSIA Banque?",
+			"Pour ouvrir un compte, veuillez vous rendre à l'agence la plus proche avec vos documents d'identité et un justificatif de domicile."
+		],
+
+		[
+			"Quels sont les frais de tenue de compte?",
+			"Les frais varient selon le type de compte. Vous pouvez consulter notre brochure tarifaire en ligne ou contacter votre agence."
+		],
+
+		[
+			"Comment puis-je obtenir une carte bancaire?",
+			"Une fois votre compte ouvert, vous pouvez demander une carte bancaire à votre agence ou via votre espace client en ligne."
+		],
+
+		[
+			"Est-ce que NSIA Banque offre des prêts immobiliers?",
+			"Oui, NSIA Banque propose une variété de prêts immobiliers adaptés à vos besoins. Contactez-nous pour plus d'informations."
+		],
+
+		[
+			"Comment allez-vous aujourd'hui?",
+			"Je suis un programme informatique, donc je n'ai pas de sentiments, mais je suis prêt à vous aider! Comment puis-je vous assister?"
+		],
+
+		[
+			"Quel temps fait-il dehors?",
+			"Je ne peux pas accéder aux informations météorologiques en temps réel, mais vous pouvez consulter un site météo ou une application pour cela."
+		],
+
+		[
+			"Comment fonctionne un chatbot?",
+			"Un chatbot est un programme qui simule une conversation humaine. Il utilise l'intelligence artificielle pour comprendre et répondre aux questions des utilisateurs."
+		],
+
+		[
+			"Êtes-vous humain?",
+			"Non, je suis une intelligence artificielle conçue pour répondre à vos questions et vous assister."
+		],
+
+		[
+			"Comment vérifier le solde de mon compte?",
+			"Vous pouvez vérifier votre solde via votre espace client en ligne, en utilisant notre application mobile ou en appelant notre service client."
+		],
+
+		[
+			"Comment faire un virement?",
+			"Vous pouvez effectuer des virements via votre espace client, notre application mobile, ou en vous rendant en agence."
+		],
+
+		[
+			"Quelle est la limite de retrait avec ma carte?",
+			"La limite de retrait dépend du type de carte que vous avez. Vous pouvez vérifier cette information dans votre contrat ou en contactant votre agence."
+		],
+
+		[
+			"Aimez-vous la musique?",
+			"Je n'ai pas de préférences ou d'émotions, mais je peux vous donner des informations sur la musique si vous le souhaitez!"
+		],
+
+		[
+			"Dites-moi une blague.",
+			"Pourquoi les plongeurs plongent-ils toujours en arrière et jamais en avant? Parce que sinon ils tombent toujours dans le bateau."
+		],
+
+		[
+			"Quel est votre film préféré?",
+			"Je n'ai pas la capacité de préférer des films, mais je peux vous fournir des informations sur presque n'importe quel film!"
+		],
+
+		[
+			"Comment puis-je bloquer ma carte bancaire en cas de perte?",
+			"Contactez immédiatement notre service client ou utilisez votre espace client en ligne pour signaler la perte et bloquer votre carte."
+		],
+
+		[
+			"Quels sont les avantages d'utiliser l'application mobile NSIA?",
+			"L'application NSIA Banque vous permet de gérer vos comptes, de faire des virements, de vérifier vos soldes, et bien plus encore, le tout depuis votre mobile."
+		],
+
+		[
+			"Comment changer mon code PIN?",
+			"Vous pouvez changer votre code PIN à un distributeur automatique de NSIA Banque ou via notre application mobile."
+		],
+
+		[
+			"Quelles sont les horaires d'ouverture des agences?",
+			"Nos agences sont généralement ouvertes du lundi au vendredi de 8h30 à 16h30. Cependant, veuillez vérifier avec l'agence spécifique pour les horaires précis."
+		],
+
+		[
+			"Comment puis-je contacter le service client?",
+			"Vous pouvez nous joindre par téléphone, email, ou via le chat sur notre site web."
+		],
+
+		[
+			"Est-ce que NSIA Banque propose des assurances?",
+			"Oui, NSIA Banque propose diverses solutions d'assurances. Consultez notre site ou contactez-nous pour plus d'informations."
+		],
+
+		[
+			"Avez-vous des recommandations de livres à lire?",
+			"Je suis programmé pour fournir des informations bancaires, mais il y a de nombreux livres populaires que les gens aiment. Peut-être pourriez-vous essayer un best-seller ou un classique de la littérature?"
+		],
+
+		[
+			"Est-ce que je peux déposer un chèque via l'application mobile?",
+			"Actuellement, vous devez déposer les chèques en agence. Cependant, nous travaillons constamment à améliorer nos services."
+		],
+
+		[
+			"Qu'est-ce que le taux d'intérêt sur votre compte épargne?",
+			"Nos taux d'intérêt varient en fonction du produit. Veuillez consulter notre site web ou contacter l'agence pour des informations spécifiques."
+		],
+
+		[
+			"Que pensez-vous de l'intelligence artificielle?",
+			"Je suis une intelligence artificielle, donc je n'ai pas d'opinions. Cependant, l'IA est un outil puissant qui change la façon dont les industries opèrent."
+		],
+
+		[
+			"Comment fonctionne la reconnaissance faciale pour l'authentification?",
+			"La reconnaissance faciale analyse les caractéristiques de votre visage pour vérifier votre identité. Elle offre une couche supplémentaire de sécurité pour vos transactions."
+		],
+		[
+			"Quelle est la différence entre un virement et un prélèvement?",
+			"Un virement est une opération bancaire où vous transférez de l'argent d'un compte à un autre. Un prélèvement est lorsque vous autorisez un tiers à retirer de l'argent de votre compte régulièrement."
+		],
+
+		[
+			"Peut-on définir des alertes pour le solde de mon compte?",
+			"Oui, avec notre application mobile et en ligne, vous pouvez définir des alertes pour être notifié lorsque votre solde atteint un certain montant."
+		],
+
+		[
+			"Comment puis-je augmenter la limite de ma carte de crédit?",
+			"Contactez votre agence ou le service client pour discuter de l'augmentation de votre limite de crédit."
+		],
+
+		[
+			"Quel est le délai pour qu'un virement soit effectué?",
+			"Les virements internes à NSIA Banque sont généralement instantanés. Les virements vers d'autres banques peuvent prendre 1 à 3 jours ouvrables."
+		],
+
+		[
+			"Clusters",
+			"Nous avons quatre clusters ou catégories de clients dans notre base client chez NSIA Banques. Les clients des groupe 1 et 4 ont le solde et la limite de crédits plus élevés. De plus, on peut constater que plus le solde augmente, plus le client obtient de limite de crédit. Cela est clairement visible dans les groupe 1 et 4 car ces groupes ont des clients qui sont très actifs dans l'utilisation de cartes de crédit. Cependant, cela diffère des groupes 2 et 3, où il y a une légère corrélation entre les deux variables car les clients de ce groupe ont une fréquence de mise à jour du solde assez rare. De plus, on peut voir que la plupart des détenteurs de cartes avec un solde nul se trouvent dans les groupes 2 et 3. La plupart des clients des groupes 2 et 3 ont des paiements nuls par rapport aux autres groupes pour chaque durée. Comme mentionné précédemment, on peut voir que la plupart des clients ont tendance à choisir une durée de remboursement de 12 mois. On peut constater que les groupes 1 et 3 ont plus d'achats à crédit que les groupes 2 et 4. Cependant, on peut également constater qu'un grand nombre d'achats à crédit ne sont pas corrélés à l'augmentation de la limite de crédit."
+		],
+
+		[
+			"Cluster 1.0",
+			"Ce sont les *Utilisateurs payeurs complets!* Les clients de ce groupe sont des utilisateurs actifs de la carte de crédit de la banque. Cela se voit à la fréquence du solde qui change fréquemment et que le montant des soldes est assez élevé par rapport aux autres groupes. De plus, comparé aux autres groupes, ce groupe présente des valeurs moyennes plus élevées dans plusieurs aspects. Les clients de cartes de crédit dans ce groupe utilisent activement les cartes de crédit pour faciliter les transactions et les versements échelonnés. Les avances de fonds, les transactions et les versements échelonnés dans ce groupe se produisent également plus fréquemment. Le fait que le score de crédit dans ce groupe soit très bon est également indiqué par l'ancienneté relativement élevée."
+		],
+
+		[
+			"Cluster 1",
+			"Ce sont les *Utilisateurs payeurs complets!* Les clients de ce groupe sont des utilisateurs actifs de la carte de crédit de la banque. Cela se voit à la fréquence du solde qui change fréquemment et que le montant des soldes est assez élevé par rapport aux autres groupes. De plus, comparé aux autres groupes, ce groupe présente des valeurs moyennes plus élevées dans plusieurs aspects. Les clients de cartes de crédit dans ce groupe utilisent activement les cartes de crédit pour faciliter les transactions et les versements échelonnés. Les avances de fonds, les transactions et les versements échelonnés dans ce groupe se produisent également plus fréquemment. Le fait que le score de crédit dans ce groupe soit très bon est également indiqué par l'ancienneté relativement élevée."
+		],
+
+		[
+			"Recommandations pour Cluster 1.0",
+			"Les clients appartenant à ce peuvent être la cible principale du marketing de cartes de crédit. Les clients de ce groupe sont très actifs dans l'utilisation de cartes de crédit, ont une durée de service et des limites de crédit les plus élevées par rapport aux autres groupes. En se concentrant sur ce groupe, NSIA peut augmenter leurs bénéfices en utilisant des cartes de crédit plus fréquemment et en rationalisant les coûts de marketing. NSIA Banque peut offrir des avantages ou des récompenses pour l'utilisation de cartes de crédit pour inciter les clients à utiliser plus souvent leurs cartes de crédit."
+		],
+
+		[
+			"Recommandations  Cluster 1.0",
+			"Les clients appartenant à ce peuvent être la cible principale du marketing de cartes de crédit. Les clients de ce groupe sont très actifs dans l'utilisation de cartes de crédit, ont une durée de service et des limites de crédit les plus élevées par rapport aux autres groupes. En se concentrant sur ce groupe, NSIA peut augmenter leurs bénéfices en utilisant des cartes de crédit plus fréquemment et en rationalisant les coûts de marketing. NSIA Banque peut offrir des avantages ou des récompenses pour l'utilisation de cartes de crédit pour inciter les clients à utiliser plus souvent leurs cartes de crédit."
+		],
+
+		[
+			"Recommandations  Cluster 1",
+			"Les clients appartenant à ce peuvent être la cible principale du marketing de cartes de crédit. Les clients de ce groupe sont très actifs dans l'utilisation de cartes de crédit, ont une durée de service et des limites de crédit les plus élevées par rapport aux autres groupes. En se concentrant sur ce groupe, NSIA peut augmenter leurs bénéfices en utilisant des cartes de crédit plus fréquemment et en rationalisant les coûts de marketing. NSIA Banque peut offrir des avantages ou des récompenses pour l'utilisation de cartes de crédit pour inciter les clients à utiliser plus souvent leurs cartes de crédit."
+		],
+
+		[
+			"Cluster 2.0",
+			"Il s'agit de la catégorie des Utilisateurs débutants/étudiants! les clients utilisent rarement, voire jamais, leur carte de crédit pour les transactions et les versements échelonnés dans ce groupe. Cela est dû au fait que le client dispose d'un solde relativement faible, la fréquence de changement du solde est rare et les versements sont très faibles. De plus, ils ont généralement une limite de crédit plus faible et une durée de service plus courte par rapport aux autres groupes."
+		],
+
+		[
+			"Recommandations pour Cluster 2.0",
+			"Ces clients sont idéaux pour les campagnes de sensibilisation à l'utilisation des cartes de crédit. NSIA Banque peut lancer des campagnes pour encourager ces clients à utiliser activement leur carte de crédit. Par exemple, offrir une réduction sur le premier achat ou donner des points bonus pour chaque utilisation de la carte. NSIA Banque pourrait également envisager d'offrir des programmes de formation sur les avantages de l'utilisation des cartes de crédit."
+		],
+
+		[
+			"Recommandations  Cluster 2.0",
+			"Ces clients sont idéaux pour les campagnes de sensibilisation à l'utilisation des cartes de crédit. NSIA Banque peut lancer des campagnes pour encourager ces clients à utiliser activement leur carte de crédit. Par exemple, offrir une réduction sur le premier achat ou donner des points bonus pour chaque utilisation de la carte. NSIA Banque pourrait également envisager d'offrir des programmes de formation sur les avantages de l'utilisation des cartes de crédit."
+		],
+
+		[
+			"Recommandations  Cluster 2",
+			"Ces clients sont idéaux pour les campagnes de sensibilisation à l'utilisation des cartes de crédit. NSIA Banque peut lancer des campagnes pour encourager ces clients à utiliser activement leur carte de crédit. Par exemple, offrir une réduction sur le premier achat ou donner des points bonus pour chaque utilisation de la carte. NSIA Banque pourrait également envisager d'offrir des programmes de formation sur les avantages de l'utilisation des cartes de crédit."
+		],
+
+		[
+			"Recommandations pour Cluster 3.0",
+			"Pour les cartes de crédit spécifiques aux paiements échelonnés, NSIA peut concentrer son marketing sur les clients de ce groupe. Les clients de ce groupe sont plus susceptibles d'effectuer des transactions par carte de crédit à des fins d'échelonnement de paiement. NSIA Banque peut introduire des offres spéciales, comme des taux d'intérêt réduits sur les versements échelonnés pendant une période promotionnelle ou des récompenses supplémentaires pour des montants de transaction élevés. Des ateliers ou des séminaires sur la gestion financière peuvent être offerts pour aider les clients à mieux comprendre et gérer leurs finances. En outre, des remises auprès de partenaires commerciaux peuvent être offertes lorsque les clients utilisent leurs cartes de crédit pour des achats échelonnés."
+		],
+
+		[
+			"Recommandations Cluster 3.0",
+			"Pour les cartes de crédit spécifiques aux paiements échelonnés, NSIA peut concentrer son marketing sur les clients de ce groupe. Les clients de ce groupe sont plus susceptibles d'effectuer des transactions par carte de crédit à des fins d'échelonnement de paiement. NSIA Banque peut introduire des offres spéciales, comme des taux d'intérêt réduits sur les versements échelonnés pendant une période promotionnelle ou des récompenses supplémentaires pour des montants de transaction élevés. Des ateliers ou des séminaires sur la gestion financière peuvent être offerts pour aider les clients à mieux comprendre et gérer leurs finances. En outre, des remises auprès de partenaires commerciaux peuvent être offertes lorsque les clients utilisent leurs cartes de crédit pour des achats échelonnés."
+		],
+
+		[
+			"Recommandations Cluster 3",
+			"Pour les cartes de crédit spécifiques aux paiements échelonnés, NSIA peut concentrer son marketing sur les clients de ce groupe. Les clients de ce groupe sont plus susceptibles d'effectuer des transactions par carte de crédit à des fins d'échelonnement de paiement. NSIA Banque peut introduire des offres spéciales, comme des taux d'intérêt réduits sur les versements échelonnés pendant une période promotionnelle ou des récompenses supplémentaires pour des montants de transaction élevés. Des ateliers ou des séminaires sur la gestion financière peuvent être offerts pour aider les clients à mieux comprendre et gérer leurs finances. En outre, des remises auprès de partenaires commerciaux peuvent être offertes lorsque les clients utilisent leurs cartes de crédit pour des achats échelonnés."
+		],
+
+		[
+			"Cluster 2.0",
+			"Il s'agit des Utilisateurs de retraits/avances de fond! Les clients de ce groupe ont des soldes élevés, des soldes dont la fréquence de changement est toujours en mouvement et une fréquence élevée de retraits et d'avances de fonds. De plus, les clients de ce groupe ont les taux d'intérêt les plus bas par rapport aux autres groupes et ont le deuxième plus haut plafond de crédit et les paiements les plus élevés des quatre groupes. Cependant, les utilisateurs de cartes de crédit dans ce groupe font rarement des achats en versements ou des achats uniques et ont le troisième plus haut taux d'ancienneté des quatre groupes. Ainsi, on peut conclure que les clients de ce groupe n'utilisent les cartes de crédit que pour les besoins de retrait d'argent ou d'avances de fonds."
+		],
+
+		[
+			"Cluster 2",
+			"Il s'agit des Utilisateurs de retraits/avances de fond! Les clients de ce groupe ont des soldes élevés, des soldes dont la fréquence de changement est toujours en mouvement et une fréquence élevée de retraits et d'avances de fonds. De plus, les clients de ce groupe ont les taux d'intérêt les plus bas par rapport aux autres groupes et ont le deuxième plus haut plafond de crédit et les paiements les plus élevés des quatre groupes. Cependant, les utilisateurs de cartes de crédit dans ce groupe font rarement des achats en versements ou des achats uniques et ont le troisième plus haut taux d'ancienneté des quatre groupes. Ainsi, on peut conclure que les clients de ce groupe n'utilisent les cartes de crédit que pour les besoins de retrait d'argent ou d'avances de fonds."
+		],
+
+		[
+			"Recommandations pour Cluster 4.0",
+			"Les clients de ce groupe ont tendance à faire des avances de fonds, NSIA peut leur offrir des cartes de crédit spéciales avec divers avantages. Ces avantages peuvent être sous forme de faibles frais d'avance de fonds ou de frais d'administration, faible taux d'intérêt, durée relativement élevée. En outre, NSIA Banque peut également leur offrir des programmes bancaires autres que des cartes de crédit, tels que des programmes de paiement différé en collaboration avec des tiers ou des prêts personnels fournis par les banques."
+		],
+
+		[
+			"Recommandations Cluster 4.0",
+			"Les clients de ce groupe ont tendance à faire des avances de fonds, NSIA peut leur offrir des cartes de crédit spéciales avec divers avantages. Ces avantages peuvent être sous forme de faibles frais d'avance de fonds ou de frais d'administration, faible taux d'intérêt, durée relativement élevée. En outre, NSIA Banque peut également leur offrir des programmes bancaires autres que des cartes de crédit, tels que des programmes de paiement différé en collaboration avec des tiers ou des prêts personnels fournis par les banques."
+		],
+
+		[
+			"Recommandations Cluster 4",
+			"Les clients de ce groupe ont tendance à faire des avances de fonds, NSIA peut leur offrir des cartes de crédit spéciales avec divers avantages. Ces avantages peuvent être sous forme de faibles frais d'avance de fonds ou de frais d'administration, faible taux d'intérêt, durée relativement élevée. En outre, NSIA Banque peut également leur offrir des programmes bancaires autres que des cartes de crédit, tels que des programmes de paiement différé en collaboration avec des tiers ou des prêts personnels fournis par les banques."
+		],
+		["Salut, comment allez-vous?", "Bonjour"],
+
+		["Salut, comment allez-vous?", "Oui Bonjour"]
+	]
+}

@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>
+			{{context.title}}| AKILI
+		</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta
+			content="SYSTEME DE SEGMENTATIONS ET DE RECOMMANDATIONS AUX CLIENTS DES BANQUES"
+			name="description"
+		/>
+		<meta content="AKILI" name="author" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+		<!-- App favicon -->
+		<link rel="shortcut icon" href="../static/images/favicon.svg" />
+
+		<!-- App css -->
+		<link
+			href="../static/css/bootstrap.min.css"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link href="../static/css/icons.min.css" rel="stylesheet" type="text/css" />
+		<link href="../static/css/theme.min.css" rel="stylesheet" type="text/css" />
+		<!-- Sweet Alerts css -->
+		<link href="../static/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<style>
+  body{
+    font-family: monospace;
+  }
+  #chatbot{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 50px;
+  }
+
+   .botText{
+    font-family: monospace;
+    font-style: 16px;
+    text-align: left;
+    line-height: 25px;
+    color:green;
+   }
+
+   #userInput{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 50px;
+    text-align: center;
+   }
+
+   #textInput{
+    border-bottom: 3px dotted #657889;
+    font-family: monospace;
+    font-style: 16px;
+    width: 60%;
+    padding: 20px;
+    color: blue;
+    
+   }
+
+   #buttonInput{
+    padding: 5px;
+    font-family: monospace;
+    font-style: 16px;
+    padding: 10px;
+    border: 3px solid #58ff7c ;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+   }
+
+   #chatbotName{
+    text-align: center;
+    color: green;
+
+   }
+ 
+ .userText{
+  text-align: right;
+ }
+</style>
+	</head>
+
+	<body>
+		<!-- Begin page -->
+		<div id="layout-wrapper">
+			<div class="header-border"></div>
+			<header id="page-topbar">
+				<div class="navbar-header">
+					<div class="d-flex align-items-left">
+						<button
+							type="button"
+							class="btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect"
+							id="vertical-menu-btn"
+						>
+							<i class="fa fa-fw fa-bars"></i>
+						</button>
+					</div>
+
+					<div class="d-flex align-items-center">
+						<div class="dropdown d-inline-block">
+							<button
+								type="button"
+								class="btn header-item waves-effect"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								<img
+									class=""
+									src="../static/images/flags/french.jpg"
+									alt="Header Language"
+									height="16"
+								/>
+								<span class="d-none d-sm-inline-block ml-1">Français</span>
+								<i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right">
+								<!-- item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item">
+									<img
+										src="../static/images/flags/us.jpg"
+										alt="user-image"
+										class="mr-1"
+										height="12"
+									/>
+									<span class="align-middle">Anglais</span>
+								</a>
+								<!-- item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item">
+									<img
+										src="../static/images/flags/spain.jpg"
+										alt="user-image"
+										class="mr-1"
+										height="12"
+									/>
+									<span class="align-middle">Espagnol</span>
+								</a>
+
+								<!-- item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item">
+									<img
+										src="../static/images/flags/germany.jpg"
+										alt="user-image"
+										class="mr-1"
+										height="12"
+									/>
+									<span class="align-middle">Allemand</span>
+								</a>
+
+								<!-- item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item">
+									<img
+										src="../static/images/flags/italy.jpg"
+										alt="user-image"
+										class="mr-1"
+										height="12"
+									/>
+									<span class="align-middle">Italien</span>
+								</a>
+
+								<!-- item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item">
+									<img
+										src="../static/images/flags/russia.jpg"
+										alt="user-image"
+										class="mr-1"
+										height="12"
+									/>
+									<span class="align-middle">Russe</span>
+								</a>
+							</div>
+						</div>
+
+						<div class="dropdown d-inline-block ml-2">
+							<button
+								type="button"
+								class="btn header-item waves-effect"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								<img
+									class="rounded-circle header-profile-user"
+									src="../static/images/users/avatar-2.jpg"
+									alt="Header Avatar"
+								/>
+								<span class="d-none d-sm-inline-block ml-1">{{ session['user']['name'] }}</span>
+								<i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a
+									class="dropdown-item d-flex align-items-center justify-content-between"
+									href="#"
+								>
+									
+								</a>
+							
+
+								<a
+									class="dropdown-item d-flex align-items-center justify-content-between"
+									href="/user/signout"
+								>
+									<span>Se déconnecter</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- ========== Left Sidebar Start ========== -->
+			<div class="vertical-menu">
+				<div data-simplebar class="h-100">
+					<div class="navbar-brand-box">
+						<a href="/dashboard/" class="logo">
+							<img class="img-fluid" src="../static/images/icon1akili.svg" />
+							<!-- <span>
+                                AKILI
+                            </span> -->
+						</a>
+					</div>
+
+					<!--- Sidemenu -->
+					<div id="sidebar-menu">
+						<!-- Left Menu Start -->
+						<ul class="metismenu list-unstyled" id="side-menu">
+							<li class="menu-title">Menu</li>
+
+							<li>
+								<a
+									href="/dashboard/"
+									class="waves-effect text-uppercase font-size-8 font-weight-bold"
+									><i class="mdi mdi-equalizer"></i><span>Indicateur</span></a
+								>
+							</li>
+							<li>
+								<a
+									href="/segments/"
+									class="waves-effect text-uppercase font-size-8 font-weight-bold"
+									><i class="mdi mdi-tablet-dashboard"></i
+									><span>Segments</span></a
+								>
+							</li>
+							<li>
+								<a
+									href="/marketing/"
+									class="waves-effect text-uppercase font-size-8 font-weight-bold"
+									><i class="mdi mdi-cash-marker"></i><span>Marketing</span></a
+								>
+							</li>
+						</ul>
+					</div>
+					<!-- Sidebar -->
+				</div>
+			</div>
+		{% block content %} {# Template inserted here #} {% endblock %}
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">2023 © Akili.</div>
+                    <div class="col-sm-6">
+                        <div class="text-sm-right d-none d-sm-block">
+                            Design & Develop by Akili
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
+</div>
+<!-- END layout-wrapper -->
+
+<!-- Overlay-->
+<div class="menu-overlay"></div>
+
+<!-- jQuery  -->
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/metismenu.min.js"></script>
+<script src="../static/js/waves.js"></script>
+<script src="../static/js/simplebar.min.js"></script>
+<script src="../static/js/script.js"></script>
+
+<!-- Sparkline Js-->
+<script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Chart Js-->
+<script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
+
+<!-- Chart Custom Js-->
+<script src="static/pages/knob-chart-demo.js"></script>
+
+<!-- Morris Js-->
+<script src="../plugins/morris-js/morris.min.js"></script>
+
+<!-- Raphael Js-->
+<script src="../plugins/raphael/raphael.min.js"></script>
+
+<!-- Custom Js -->
+<script src="static/pages/dashboard-demo.js"></script>
+
+<!-- App js -->
+<script src="static/js/theme.js"></script>
+
+<!-- Sweet Alerts Js-->
+<script src="../static/sweetalert2/sweetalert2.min.js"></script>
+<!-- Sweet Alerts Js-->
+<script src="../static/sweetalert2/sweet-alert-demo.js"></script>
+<script>
+	// Capturez le bouton de prédiction
+var boutonPredire = document.querySelector('button[name="btn_predire_client"]');
+
+// Ajoutez un gestionnaire d'événements pour le clic sur le bouton
+boutonPredire.addEventListener("click", function (event) {
+	// Empêchez le comportement par défaut du bouton (par exemple, la soumission du formulaire)
+	event.preventDefault();
+
+	// Capturez les données du formulaire uniquement si le bouton a été actionné
+	capturerDonneesEtPredire();
+});
+
+function capturerDonneesEtPredire() {
+    // Capturez les données du formulaire et construisez l'objet de données à envoyer à l'API
+    var formData = {
+        BALANCE: document.getElementById('validationCustom01').value,
+        BALANCE_FREQUENCY: document.getElementById('validationCustom02').value,
+        PURCHASES: document.getElementById('validationCustom03').value,
+        ONEOFF_PURCHASES: document.getElementById('validationCustom04').value,
+        INSTALLMENTS_PURCHASES: document.getElementById('validationCustom05').value,
+        CASH_ADVANCE: document.getElementById('validationCustom06').value,
+        PURCHASES_FREQUENCY: document.getElementById('validationCustom07').value,
+        ONEOFF_PURCHASES_FREQUENCY: document.getElementById('validationCustom08').value,
+        PURCHASES_INSTALLMENTS_FREQUENCY: document.getElementById('validationCustom09').value,
+        CASH_ADVANCE_FREQUENCY: document.getElementById('validationCustom10').value,
+        CASH_ADVANCE_TRX: document.getElementById('validationCustom11').value,
+        PURCHASES_TRX: document.getElementById('validationCustom12').value,
+        CREDIT_LIMIT: document.getElementById('validationCustom13').value,
+        PAYMENTS: document.getElementById('validationCustom14').value,
+        MINIMUM_PAYMENTS: document.getElementById('validationCustom15').value,
+        PRC_FULL_PAYMENT: document.getElementById('validationCustom16').value,
+        TENURE: document.getElementById('validationCustom17').value
+    };
+
+    // Appeler l'API
+	url_api = 'http://localhost:8000/predictions';
+    fetch(url_api, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Traiter les données de réponse
+        var prediction = data.prediction;
+
+        // Afficher les données dans le span de classe "prediction"
+        var predictionSpan = document.querySelector('.prediction');
+        predictionSpan.textContent = prediction;
+    })
+    .catch(error => {
+        console.error('Une erreur s\'est produite:', error);
+    });
+}
+</script>
+
+
+<script>
+var bouton_predire = document.getElementById("predire_client");
+//Fonction de validation de tout le formulaire
+function validationForm(){
+	// Fonction de validation SOLDE
+const balanceInput = document.getElementById('validationCustom01');
+const balanceError = document.getElementById('balance_error');
+
+function validateBalance() {
+  const balanceValue = parseFloat(balanceInput.value);
+
+  if (isNaN(balanceValue) || balanceValue < 0.0 || balanceInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    balanceError.style.display = 'inline';
+    balanceError.textContent = "Le solde doit être positif et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    balanceError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si le solde est invalide
+validateBalance();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+balanceInput.addEventListener('input', validateBalance);
+
+// Fonction de validation BALANCE_FREQUENCY
+const balance_freqInput = document.getElementById('validationCustom02');
+const balance_freqError = document.getElementById('balance_freq_error');
+
+function validateBalanceFreq() {
+  const balance_freqValue = parseFloat(balance_freqInput.value);
+
+  if (isNaN(balance_freqValue) || balance_freqValue > 1.0 || balance_freqValue < 0.0 || balance_freqInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    balance_freqError.style.display = 'inline';
+    balance_freqError.textContent = "La fréquence de solde doit être comprise entre 0 et 1 et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    balance_freqError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la fréquence de solde est invalide
+validateBalanceFreq();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+balance_freqInput.addEventListener('input', validateBalanceFreq);
+
+// Fonction de validation PURCHASES
+const purchasesInput = document.getElementById('validationCustom03');
+const purchasesError = document.getElementById('purchases_error');
+
+function validatePurchases() {
+  const purchasesValue = parseFloat(purchasesInput.value);
+
+  if (isNaN(purchasesValue) || purchasesValue < 0.0 || purchasesInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    purchasesError.style.display = 'inline';
+    purchasesError.textContent = "L'achat doit être positif et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    purchasesError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si l'achat est invalide
+validatePurchases();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+purchasesInput.addEventListener('input', validatePurchases);
+
+// Fonction de validation ONEOFF_PURCHASES
+const oneoff_purchasesInput = document.getElementById('validationCustom04');
+const oneoff_purchasesError = document.getElementById('oneoff_purchases_error');
+
+function validateOneoffPurchases() {
+  const oneoff_purchasesValue = parseFloat(oneoff_purchasesInput.value);
+
+  if (isNaN(oneoff_purchasesValue) || oneoff_purchasesValue < 0.0 || oneoff_purchasesInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    oneoff_purchasesError.style.display = 'inline';
+    oneoff_purchasesError.textContent = "L'achat unique doit être positif et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    oneoff_purchasesError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si l'achat unique est invalide
+validateOneoffPurchases();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+oneoff_purchasesInput.addEventListener('input', validateOneoffPurchases);
+
+// Fonction de validation INSTALLMENTS_PURCHASES
+const installments_purchaseInput = document.getElementById('validationCustom05');
+const installments_purchaseError = document.getElementById('installments_purchase_error');
+
+function validateInstallmentsPurchase() {
+  const installments_purchaseValue = parseFloat(installments_purchaseInput.value);
+
+  if (isNaN(installments_purchaseValue) || installments_purchaseValue < 0.0 || installments_purchaseInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    installments_purchaseError.style.display = 'inline';
+    installments_purchaseError.textContent = "L'achat échelonné doit être positif et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    installments_purchaseError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si l'achat échelonné est invalide
+validateInstallmentsPurchase();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+installments_purchaseInput.addEventListener('input', validateInstallmentsPurchase);
+
+
+
+// Fonction de validation CASH_ADVANCE
+const cash_advanceInput = document.getElementById('validationCustom06');
+const cash_advanceError = document.getElementById('cash_advance_error');
+
+function validateCashAdvance() {
+  const cash_advanceValue = parseFloat(cash_advanceInput.value);
+
+  if (isNaN(cash_advanceValue) || cash_advanceValue < 0.0 || cash_advanceInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    cash_advanceError.style.display = 'inline';
+    cash_advanceError.textContent = "L'avance de fond doit être positive et non vide!";
+   
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    cash_advanceError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si l'avance de fond est invalide
+validateCashAdvance();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+cash_advanceInput.addEventListener('input', validateCashAdvance);
+
+// Fonction de validation PURCHASES_FREQUENCY
+const purchases_freqInput = document.getElementById('validationCustom07');
+const purchases_freqError = document.getElementById('purchases_freq_error');
+
+function validatePurchasesFrequency() {
+  const purchases_freqValue = parseFloat(purchases_freqInput.value);
+
+  if (isNaN(purchases_freqValue) || purchases_freqValue > 1.0 || purchases_freqValue < 0.0 || purchases_freqInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    purchases_freqError.style.display = 'inline';
+    purchases_freqError.textContent = "La fréquence d'achat doit être comprise entre 0 et 1 et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    purchases_freqError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la fréquence d'achat est invalide
+validatePurchasesFrequency();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+purchases_freqInput.addEventListener('input', validatePurchasesFrequency);
+
+// Fonction de validation ONEOFF_PURCHASES_FREQUENCY
+const oneoff_purchases_freqInput = document.getElementById('validationCustom08');
+const oneoff_purchases_freqError = document.getElementById('oneoff_purchases_freq_error');
+
+function validateOneoffPurchasesFrequency() {
+  const oneoff_purchases_freqValue = parseFloat(oneoff_purchases_freqInput.value);
+
+  if (isNaN(oneoff_purchases_freqValue) || oneoff_purchases_freqValue > 1.0 || oneoff_purchases_freqValue < 0.0 || oneoff_purchases_freqInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    oneoff_purchases_freqError.style.display = 'inline';
+    oneoff_purchases_freqError.textContent = "La fréquence d'achat unique doit être comprise entre 0 et 1 et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    oneoff_purchases_freqError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la fréquence d'achat unique est invalide
+validateOneoffPurchasesFrequency();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+oneoff_purchases_freqInput.addEventListener('input', validateOneoffPurchasesFrequency);
+
+// Fonction de validation INSTALLMENTS_PURCHASES_FREQUENCY
+const installments_purchases_freqInput = document.getElementById('validationCustom09');
+const installments_purchases_freqError = document.getElementById('purchase_installments_freq_error');
+
+function validateInstallmentsPurchasesFrequency() {
+  const installments_purchases_freqValue = parseFloat(installments_purchases_freqInput.value);
+
+  if (isNaN(installments_purchases_freqValue) || installments_purchases_freqValue > 1.0 || installments_purchases_freqValue < 0.0 || installments_purchases_freqInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    installments_purchases_freqError.style.display = 'inline';
+    installments_purchases_freqError.textContent = "La fréquence d'achat à tempérament doit être comprise entre 0 et 1 et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    installments_purchases_freqError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la fréquence d'achat à tempérament est invalide
+validateInstallmentsPurchasesFrequency();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+installments_purchases_freqInput.addEventListener('input', validateInstallmentsPurchasesFrequency);
+
+// Fonction de validation CASH_ADVANCE_FREQUENCY
+const cash_advance_freqInput = document.getElementById('validationCustom10');
+const cash_advance_freqError = document.getElementById('cash_advance_freq_error');
+
+function validateCashAdvanceFrequency() {
+  const cash_advance_freqValue = parseFloat(cash_advance_freqInput.value);
+
+  if (isNaN(cash_advance_freqValue) || cash_advance_freqValue > 1.0 || cash_advance_freqValue < 0.0 || cash_advance_freqInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    cash_advance_freqError.style.display = 'inline';
+    cash_advance_freqError.textContent = "La fréquence d'achat de fond doit être comprise entre 0 et 1 et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    cash_advance_freqError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la fréquence d'achat de fond est invalide
+validateCashAdvanceFrequency();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+cash_advance_freqInput.addEventListener('input', validateCashAdvanceFrequency);
+
+// Fonction de validation CASH_ADVANCE_TRX
+const cash_advance_trxInput = document.getElementById('validationCustom11');
+const cash_advance_trxError = document.getElementById('cash_advance_trx_error');
+
+function validateCashAdvanceTrx() {
+  const cash_advance_trxValue = parseFloat(cash_advance_trxInput.value);
+
+  if (isNaN(cash_advance_trxValue) || cash_advance_trxValue < 0.0 || cash_advance_trxInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    cash_advance_trxError.style.display = 'inline';
+    cash_advance_trxError.textContent = "La transaction d'avance de fond doit être positive et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    cash_advance_trxError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la transaction d'avance de fond est invalide
+validateCashAdvanceTrx();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+cash_advance_trxInput.addEventListener('input', validateCashAdvanceTrx);
+
+// Fonction de validation PURCHASES_TRX
+const purchases_trxInput = document.getElementById('validationCustom12');
+const purchases_trxError = document.getElementById('purchases_trx_error');
+
+function validatePurchasesTrx() {
+  const purchases_trxValue = parseFloat(purchases_trxInput.value);
+
+  if (isNaN(purchases_trxValue) || purchases_trxValue < 0.0 || purchases_trxInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    purchases_trxError.style.display = 'inline';
+    purchases_trxError.textContent = "La transaction d'achat doit être positive et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    purchases_trxError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la transaction d'achat est invalide
+validatePurchasesTrx();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+purchases_trxInput.addEventListener('input', validatePurchasesTrx);
+
+// Fonction de validation CREDIT_LIMIT
+const credit_limitInput = document.getElementById('validationCustom13');
+const credit_limitError = document.getElementById('credit_limit_error');
+
+function validateCreditLimit() {
+  const credit_limitValue = parseFloat(credit_limitInput.value);
+
+  if (isNaN(credit_limitValue) || credit_limitValue < 0.0 || credit_limitInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    credit_limitError.style.display = 'inline';
+    credit_limitError.textContent = "La limite de crédit doit être positive et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    credit_limitError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si la limite de crédit est invalide
+validateCreditLimit();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+credit_limitInput.addEventListener('input', validateCreditLimit);
+
+// Fonction de validation PAYMENTS
+const paymentsInput = document.getElementById('validationCustom14');
+const paymentsError = document.getElementById('payments_error');
+
+function validatePayments() {
+  const paymentsValue = parseFloat(paymentsInput.value);
+
+  if (isNaN(paymentsValue) || paymentsValue < 0.0 || paymentsInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    paymentsError.style.display = 'inline';
+    paymentsError.textContent = "Le paiement doit être positif et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    paymentsError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si le paiement est invalide
+validatePayments();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+paymentsInput.addEventListener('input', validatePayments);
+
+// Fonction de validation MINIMUM_PAYMENTS
+const min_paymentsInput = document.getElementById('validationCustom15');
+const min_paymentsError = document.getElementById('min_payments_error');
+
+function validateMinPayments() {
+  const min_paymentsValue = parseFloat(min_paymentsInput.value);
+
+  if (isNaN(min_paymentsValue) || min_paymentsValue < 0.0 || min_paymentsInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    min_paymentsError.style.display = 'inline';
+    min_paymentsError.textContent = "Le paiement minimum doit être positif et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    min_paymentsError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si le paiement minimum est invalide
+validateMinPayments();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+min_paymentsInput.addEventListener('input', validateMinPayments);
+
+// Fonction de validation PRC_FULL_PAYMENT
+const pct_full_paymentInput = document.getElementById('validationCustom16');
+const pct_full_paymentError = document.getElementById('pct_off_full_payment_error');
+
+function validatePctFullPayment() {
+  const pct_full_paymentValue = parseFloat(pct_full_paymentInput.value);
+
+  if (isNaN(pct_full_paymentValue) || pct_full_paymentValue > 1.0 || pct_full_paymentValue < 0.0 || pct_full_paymentInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    pct_full_paymentError.style.display = 'inline';
+    pct_full_paymentError.textContent = "Le taux de paiement intégral doit être compris entre 0 et 1 et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    pct_full_paymentError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si le taux de paiement intégral est invalide
+validatePctFullPayment();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+pct_full_paymentInput.addEventListener('input', validatePctFullPayment);
+
+// Fonction de validation TENURE
+const tenureInput = document.getElementById('validationCustom17');
+const tenureError = document.getElementById('tenure_error');
+
+function validateTenure() {
+  const tenureValue = parseInt(tenureInput.value);
+
+  if (isNaN(tenureValue) || tenureValue < 1 || tenureValue > 12 || tenureInput.value.trim() === "") {
+    // Afficher le message d'erreur
+    tenureError.style.display = 'inline';
+    tenureError.textContent = "L'ancienneté doit être comprise entre 1 et 12 et non vide!";
+    bouton_predire.disabled = true;
+  } else {
+    // Cacher le message d'erreur s'il est affiché
+    tenureError.style.display = 'none';
+    return true;
+  }
+}
+
+// Afficher le message d'erreur initial au chargement de la page si l'ancienneté est invalide
+validateTenure();
+
+// Ajouter un écouteur d'événement pour détecter les changements de valeur
+tenureInput.addEventListener('input', validateTenure);
+
+
+
+// Fonction pour vérifier l'état de validation de tous les champs
+function checkValidation() {
+    const isValid =
+      validateBalance() &&
+      validateBalanceFreq() &&
+      validatePurchases() &&
+      validateOneoffPurchases() &&
+      validateInstallmentsPurchase() &&
+      validateCashAdvance() &&
+      validatePurchasesFrequency() &&
+      validateOneoffPurchasesFrequency() &&
+      validateInstallmentsPurchasesFrequency() &&
+      validateCashAdvanceFrequency() &&
+      validateCashAdvanceTrx() &&
+      validatePurchasesTrx() &&
+      validateCreditLimit();
+    bouton_predire.disabled = !isValid;
+  }
+
+  // Ajouter un écouteur d'événement pour détecter les changements de valeur
+  balanceInput.addEventListener('input', checkValidation);
+  balance_freqInput.addEventListener('input', checkValidation);
+  purchasesInput.addEventListener('input', checkValidation);
+  oneoff_purchasesInput.addEventListener('input', checkValidation);
+  installments_purchaseInput.addEventListener('input', checkValidation);
+  cash_advanceInput.addEventListener('input', checkValidation);
+  purchases_freqInput.addEventListener('input', checkValidation);
+  oneoff_purchases_freqInput.addEventListener('input', checkValidation);
+  installments_purchases_freqInput.addEventListener('input', checkValidation);
+  cash_advance_freqInput.addEventListener('input', checkValidation);
+  cash_advance_trxInput.addEventListener('input', checkValidation);
+  purchases_trxInput.addEventListener('input', checkValidation);
+  credit_limitInput.addEventListener('input', checkValidation);
+
+}
+
+// Appeler la fonction de validation du formulaire
+validationForm();
+
+
+</script>
+<!-- Ajoutez ces scripts dans votre page HTML -->
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<!--  Gestion du boutton de soumission de fichier excel côté js -->
+<script>
+	// Écouteur d'événement pour le bouton de classe btn_predire_excel
+	document.querySelector(".btn_predire_excel").addEventListener("click", function() {
+			// Attendre 1000 millisecondes
+			setTimeout(function() {
+			// Afficher le bouton de classe xlsx_file
+			document.querySelector(".xlsx_file").style.display = "block";
+		}, 4000);
+
+		// Récupérer le fichier Excel soumis
+		const fileInput = document.getElementById('predire_excel_form');
+    	const file = fileInput.files[0];
+     
+});
+		document.querySelector(".xlsx_file").addEventListener("click",function(){
+		document.querySelector(".xlsx_file").style.display = "none";
+		
+	});
+  </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/file-saver"></script>
+
+<script>
+  
+  var ExcelToJSON = function() {
+
+    this.parseExcel = function(file) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        var data = e.target.result;
+        var workbook = XLSX.read(data, {
+          type: 'binary'
+        });
+        workbook.SheetNames.forEach(function(sheetName) {
+          // Here is your object
+          var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+          var json_object = JSON.stringify(XL_row_object);
+
+
+          // console.log(JSON.parse(json_object));
+          var tableau_excel = JSON.parse(json_object);
+          var formData = {
+            "BALANCE":[],
+            "BALANCE_FREQUENCY":[],
+            "PURCHASES":[],
+            "ONEOFF_PURCHASES":[],
+            "INSTALLMENTS_PURCHASES":[],
+            "CASH_ADVANCE":[],
+            "PURCHASES_FREQUENCY":[],
+            "ONEOFF_PURCHASES_FREQUENCY":[],
+            "PURCHASES_INSTALLMENTS_FREQUENCY":[],
+            "CASH_ADVANCE_FREQUENCY":[],
+            "CASH_ADVANCE_TRX":[],
+            "PURCHASES_TRX":[],
+            "CREDIT_LIMIT":[],
+            "PAYMENTS":[],
+            "MINIMUM_PAYMENTS":[],
+            "PRC_FULL_PAYMENT":[],
+            "TENURE":[]
+          };
+          tableau_excel.forEach(function (data) {
+            formData.BALANCE.push(data["BALANCE"]);
+            formData.BALANCE_FREQUENCY.push(data["BALANCE_FREQUENCY"]);
+            formData.PURCHASES.push(data["PURCHASES"]);
+            formData.ONEOFF_PURCHASES.push(data["ONEOFF_PURCHASES"]);
+            formData.INSTALLMENTS_PURCHASES.push(data["INSTALLMENTS_PURCHASES"]);
+            formData.CASH_ADVANCE.push(data["CASH_ADVANCE"]);
+            formData.PURCHASES_FREQUENCY.push(data["PURCHASES_FREQUENCY"]);
+            formData.ONEOFF_PURCHASES_FREQUENCY.push(data["ONEOFF_PURCHASES_FREQUENCY"]);
+            formData.PURCHASES_INSTALLMENTS_FREQUENCY.push(data["PURCHASES_INSTALLMENTS_FREQUENCY"]);
+            formData.CASH_ADVANCE_FREQUENCY.push(data["CASH_ADVANCE_FREQUENCY"]);
+            formData.CASH_ADVANCE_TRX.push(data["CASH_ADVANCE_TRX"]);
+            formData.PURCHASES_TRX.push(data["PURCHASES_TRX"]);
+            formData.CREDIT_LIMIT.push(data["CREDIT_LIMIT"]);
+            formData.PAYMENTS.push(data["PAYMENTS"]);
+            formData.MINIMUM_PAYMENTS.push(data["MINIMUM_PAYMENTS"]);
+            formData.PRC_FULL_PAYMENT.push(data["PRC_FULL_PAYMENT"]);
+            formData.TENURE.push(data["TENURE"]);
+          });
+          // console.table(formData);
+          
+    url_api = 'http://localhost:8000/predictions';
+    fetch(url_api, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Traiter les données de réponse
+        
+        document.querySelector("#sa-close").addEventListener("click", function() {
+        var prediction = data.prediction;
+        formData["PREDICTIONS"] = [];
+        formData["PREDICTIONS"].push(...prediction);         
+})
+    })
+    .catch(error => {
+        console.error('Une erreur s\'est produite:', error);
+    });
+    
+
+function objectToArray(obj) {
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
+  const maxValuesLength = Math.max(...values.map(arr => arr.length));
+  const result = [[...keys]];
+  
+  for (let i = 0; i < maxValuesLength; i++) {
+    const row = keys.map((key, index) => values[index][i] || "");
+    result.push(row);
+  }
+  return result;
+}
+
+
+// Fonction pour télécharger un fichier Excel
+function downloadExcel(data, filename) {
+  const workbook = XLSX.utils.book_new();
+  const worksheet = XLSX.utils.aoa_to_sheet(data);
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+  const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+  const blob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+  
+  if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+    // Pour Internet Explorer
+    window.navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
+    // Pour les autres navigateurs
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    link.click();
+    setTimeout(() => {
+      window.URL.revokeObjectURL(url);
+    }, 100);
+  }
+}
+
+// Événement lors du clic sur le bouton de classe 'tab'
+const button = document.querySelector("#xlsx_file");
+button.addEventListener("click", function() {
+const dataframe = formData;
+const data = objectToArray(dataframe);
+
+function recupererNomFichier() {
+  var nomFichier = this.value;
+  nomFichier = nomFichier.replace(/^.*[\\\/]/, '').replace("C__fakepath_", "");
+  nomFichier = nomFichier.replace(".xlsx", "");
+ return nomFichier;}
+ var i = document.getElementById('predire_excel_form');
+var nomFichier = recupererNomFichier.call(i);
+const filename = nomFichier +"_predicted.xlsx";
+downloadExcel(data, filename);
+});
+        })  
+      };
+      reader.onerror = function(ex) {
+        console.log(ex);
+      };
+      reader.readAsBinaryString(file);
+
+    };
+  };
+  function handleFileSelect(evt) {
+    var files = evt.target.files;
+    var xl2json = new ExcelToJSON();
+    xl2json.parseExcel(files[0]);
+  }
+  document.getElementById('upload').addEventListener('change', handleFileSelect, false);
+
+
+  var btn = document.querySelector(".btn_predire_excel");
+  btn.disabled = true;
+  function verifierFormExcel(e){
+    var files = e.target.files;
+    if(files.length != 0){
+      btn.disabled = false;
+      /* 
+      1- Tâche à faire : vérifier si le fichier chargé est bien au format .xlsx
+      2- Invalider le bouton soumettre lorsqu'on vide le formulaire après l'avoir chargé
+      */
+      
+    }
+  }
+  document.getElementById('upload').addEventListener('input', verifierFormExcel, false);
+  document.getElementById('upload').addEventListener('change', verifierFormExcel, false);
+</script>
+<textarea class="form-control" rows=35 cols=120 id="xlx_json" style="display: none;"></textarea>
+
+<script>
+  function getUserResponse(){
+   var userText = $('#textInput').val();
+   var userHTML = "<p class='userText'>{{ session['user']['name'] }}: <span>"+userText+"</span></p>";
+   $('#textInput').val("");
+   $('#chatbot').append(userHTML);
+   document.getElementById("userInput").scrollIntoView({block:'start', behavior:'smooth'});
+   $.get("/get",{userMessage:userText}).done(function(data){
+    var botHTML = "<p class='botText'>AKILINSIA: <span>"+data+"</span></p>";;
+    $("#chatbot").append(botHTML);
+   });
+  }
+
+  $('#textInput').keypress(function(e){
+    if(e.which==13){
+      getUserResponse();
+    }
+  });
+
+  $("#buttonInput").click(function(){
+    getUserResponse();
+  })
+</script>
+</body>
+</html>

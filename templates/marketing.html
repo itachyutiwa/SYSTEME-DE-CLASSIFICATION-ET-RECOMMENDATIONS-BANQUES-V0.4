@@ -1,0 +1,181 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Left Sidebar End -->
+
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="main-content">
+	<div class="page-content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-12 col-md-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="tab-content">
+								<div class="tab-pane show active" id="dashboard">
+									<div class="table-responsive">
+										<div class="col-12">
+											<div class="card">
+												<div class="card-body">
+													<h4
+														class="card-title font-size-18 text-uppercase"
+													></h4>
+													<p class="card-subtitle mb-4"></p>
+													<div class="row">
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">SOLDE MOYEN</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.balance_mean}}
+																			</h2>
+																		</div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!-- end card-->
+														</div>
+														<!-- end col-->
+
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">
+																			FREQUENCE ACHAT
+																		</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.purchases_freq_mean}} %
+																			</h2>
+																		</div>
+																	</div>
+
+																	<div
+																		class="progress shadow-sm"
+																		style="height: 5px"
+																	>
+																		<div
+																			class="progress-bar bg-danger"
+																			role="progressbar"
+																			style="width: 57%"
+																		></div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!-- end card-->
+														</div>
+														<!-- end col-->
+
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">
+																			TOTAL D'ACHAT
+																		</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.purchases_trx_sum}}
+																			</h2>
+																		</div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!--end card-->
+														</div>
+														<!-- end col-->
+
+														<div class="col-md-6 col-xl-3">
+															<div class="card">
+																<div class="card-body">
+																	<div class="mb-4">
+																		<h5 class="card-title mb-0">
+																			PAYEMENT MOYEN
+																		</h5>
+																	</div>
+																	<div
+																		class="row d-flex align-items-center mb-4"
+																	>
+																		<div class="col-8">
+																			<h2
+																				class="d-flex align-items-center mb-0"
+																			>
+																				{{context.payments_mean}}
+																			</h2>
+																		</div>
+																	</div>
+																</div>
+																<!--end card body-->
+															</div>
+															<!-- end card-->
+														</div>
+														<!-- end col-->
+													</div>
+													<div class="row">
+														<div class="col-md-12"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- end card-body-->
+						</div>
+						<!-- end card-->
+					</div>
+					<!-- end col -->
+				</div>
+
+				<!-- end row-->
+			</div>
+			<!-- container-fluid -->
+		</div>
+		<!-- End Page-content -->
+		<!-- Début ChatBot-->
+		<h1 id="chatbotName">ChatBot AKILINSIA</h1>
+		<div id="chatbot">
+			<p class="botText">
+				<span style="color: red"
+					>Bonjour et bienvenue ! Que puis-je faire pour vous?</span
+				>
+			</p>
+		</div>
+		<div id="userInput">
+			<input
+				type="text"
+				id="textInput"
+				name="userMessage"
+				placeholder="Entrez votre message..."
+			/>
+			<input type="submit" id="buttonInput" value="Envoyez" />
+		</div>
+		<!-- Fin ChatBot -->
+	</div>
+	{% endblock %}
+</div>
